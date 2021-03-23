@@ -1,0 +1,35 @@
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: master
+  hooks:
+    - id: check-added-large-files
+    - id: check-case-conflict
+    - id: check-merge-conflict
+    - id: check-yaml
+    - id: detect-private-key
+    - id: forbid-new-submodules
+    - id: check-builtin-literals
+
+- repo: https://github.com/jumanjihouse/pre-commit-hooks
+  rev: master
+  hooks:
+    - id: forbid-binary
+    - id: git-dirty
+
+- repo: https://github.com/pre-commit/pygrep-hooks
+  rev: master
+  hooks:
+    - id: python-use-type-annotations
+
+- repo: https://github.com/Lucas-C/pre-commit-hooks
+  rev: master
+  hooks:
+    - id: forbid-crlf
+    - id: remove-crlf
+    - id: forbid-tabs
+    - id: remove-tabs
+
+- repo: https://github.com/psf/black
+  rev: 19.3b0
+  hooks:
+    - id: black
+
