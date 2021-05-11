@@ -28,7 +28,7 @@ jobs:
         fetch-depth: 1
     - name: Build
       run: |
-        pip -q install poetry
-        poetry install
-        poetry run black --check .
-        poetry run mypy --ignore-missing-imports .
+        pip -q install pdm pre-commit
+        pdm install
+        pre-commit run --all-files 1>/dev/null
+        pdm run mypy --ignore-missing-imports .

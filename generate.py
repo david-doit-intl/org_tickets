@@ -21,13 +21,11 @@ def get_secret(project_id: str, secret_id: str) -> str:
 
 def fetch(api: str, cookies: list, page_num: int = 1):
     return get(
-        f"https://doitintl.zendesk.com/api/v2/{api}.json?page={page_num}",
-        cookies,
-        page_num,
+        f"https://doitintl.zendesk.com/api/v2/{api}.json?page={page_num}", cookies
     )
 
 
-def get(uri: str, cookies: list, page_num: int):
+def get(uri: str, cookies: list):
     response = requests.get(uri, cookies=cookies)
     while response.status_code != 200:
         if response.status_code == 429:

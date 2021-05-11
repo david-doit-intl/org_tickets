@@ -31,5 +31,10 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-## output 
+## output
 *json
+*egg*
+
+## PDM
+.pdm.toml
+__pypackages__
