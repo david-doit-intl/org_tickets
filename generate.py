@@ -68,17 +68,16 @@ def main():
     )
 
     bucket_name = os.environ["BUCKET"]
-    apis = ["users", "groups", "organizations", "tickets"]
-
-    api_data = {api: get_json_data(api, cookies) for api in apis}
 
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
 
+    apis = ["users", "groups", "organizations", "tickets", "activities"]
     for api in apis:
         blob_name = f"{api}/ingest_date={str(date.today())}/{api}.json"
         blob = bucket.blob(blob_name)
-        blob.upload_from_string(data=api_data[api])
+        api_data = get_json_data(api, cookies)
+        blob.upload_from_string(data=api_data)
         print(f"Uploaded to gs://{bucket_name}/{blob.name}")
     return "Files Uploaded Successfully"
 
