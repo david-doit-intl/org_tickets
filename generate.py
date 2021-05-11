@@ -72,7 +72,7 @@ def main():
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
 
-    apis = ["users", "groups", "organizations", "tickets", "activities"]
+    apis = ["users", "groups", "organizations", "tickets"]
     for api in apis:
         blob_name = f"{api}/ingest_date={str(date.today())}/{api}.json"
         blob = bucket.blob(blob_name)
